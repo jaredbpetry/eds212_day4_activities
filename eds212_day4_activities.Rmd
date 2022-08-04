@@ -1,0 +1,42 @@
+---
+title: "R-exploring"
+author: "Jared Petry"
+date: "2022-08-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(skimr)
+library(tidyverse)
+library(GGally)
+```
+
+
+## Exploring diamonds dataset
+```{r}
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+```
+
+# GGally ggpairs plot 
+```{r}
+GGally::ggpairs(diamonds)
+```
+## ggplot scatterplot of Price by Carot
+```{r}
+ggplot(data = diamonds, aes(x = carat, y = price))+
+  geom_jitter()
+
+```
+
+# Carat histogram
+```{r}
+ggplot(data = diamonds, aes(x = carat))+
+  geom_histogram()
+```
+
